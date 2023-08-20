@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <section id="section-container">
+        <h1>Hello Event Bubble</h1>
+        <ul id="ul-container">
+            <li>List-Items-1</li>
+            <li>List-Items-2</li>
+            <li id="list-container-3">List-Items-3</li>
+            <li>List-Items-4</li>
+            <li>List-Items-5</li>
+            <li>List-Items-6</li>
+            <li>List-Items-7</li>
+        </ul>
+    </section>
+
+    <script>
+        document.getElementById('section-container').addEventListener('click', function(){
+            console.log("Section Container is clicked");
+        })
+        document.getElementById('ul-container').addEventListener('click', function(){
+            console.log("Ul Container is clicked");
+        })
+        document.getElementById('list-container-3').addEventListener('click', function(event){
+            // event.stopPropagation();
+            event.stopImmediatePropagation();
+            console.log("List Container 3 is clicked");
+        })
+        document.getElementById('list-container-3').addEventListener('click', function(event){
+            // event.stopPropagation();
+            // event.stopImmediatePropagation();
+            console.log("List Container 3 is 2 clicked");
+        })
+        document.getElementById('list-container-3').addEventListener('click', function(event){
+            // event.stopPropagation();
+            // event.stopImmediatePropagation();
+            console.log("List Container 3 is 3 clicked");
+        })
+    </script>
+</body>
+</html>
